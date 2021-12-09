@@ -1,0 +1,1 @@
+Adafruit CircuitPython 6.2.0-beta.2-137-ge41137c74-dirty on 2021-02-24; Pimoroni Keybow 2040 with rp2040
