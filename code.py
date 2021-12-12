@@ -11,11 +11,11 @@
 
 # NOTE! Requires the adafruit_hid CircuitPython library also!
 
-from adafruit_hid.keyboard import Keyboard
+from adafruit_hid.keyboard import Keyboard # type: ignore
 from keyboard import globals
 from keyboard.keys.abc import *
 from keyboard.keys.press import *
-from keyboard.keys.light import *
+from keyboard.keys import light
 from keyboard.layers import *
 
 # The colour to set the keys when pressed.
@@ -24,11 +24,13 @@ PURPLE = (36, 30, 47)
 PINK = (255, 152, 186)
 LAVENDER = (230, 230, 250)
 INDIGO = (148, 87, 235)
+TALON = (38, 82, 111)
+ZOOMUS = (45, 140, 255)
 
-ShortCat = And(Light(PURPLE), Press('ctrl-alt-cmd-C'))
-ToggleTalon = And(Mirror(Keyboard.LED_CAPS_LOCK, PURPLE, PINK), Press('ctrl-alt-M'))
-ToggleMuted = And(Light(PURPLE), Press('ctrl-alt-cmd-M'))
-Disabled = Light(PURPLE)
+ShortCat = And(light.SwitchWhenPressed(PURPLE, PINK), Press('ctrl-alt-cmd-C'))
+ToggleTalon = And(light.Mirror(Keyboard.LED_CAPS_LOCK, PURPLE, PINK), Press('cmd-ctrl-alt-T'))
+ToggleMuted = And(light.Mirror(Keyboard.LED_NUM_LOCK, PURPLE, PINK), Press('cmd-ctrl-alt-Z'))
+Disabled = light.AlwaysOn(PURPLE)
 
 layer1 = Layer([
     [Disabled, Disabled,    Disabled,    Disabled],

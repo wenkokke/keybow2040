@@ -1,6 +1,6 @@
 from keyboard import globals
 from keyboard.keys.abc import KeyAction
-from adafruit_hid.keycode import Keycode
+from adafruit_hid.keycode import Keycode # type: ignore
 from keybow2040 import Key
 
 class Press(KeyAction):

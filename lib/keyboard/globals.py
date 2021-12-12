@@ -2,10 +2,9 @@ import board
 from keybow2040 import Keybow2040
 
 import usb_hid
-from adafruit_hid.keyboard import Keyboard
-from adafruit_hid.keyboard import Keyboard
-from adafruit_hid.keyboard_layout_us import KeyboardLayoutUS
-from adafruit_hid.keycode import Keycode
+from adafruit_hid.keyboard import Keyboard # type: ignore
+from adafruit_hid.keyboard import Keyboard # type: ignore
+from adafruit_hid.keyboard_layout_us import KeyboardLayoutUS # type: ignore
 
 # Set up Keybow
 I2C = board.I2C()
